@@ -52,6 +52,13 @@
             }));
         }
     }), 0);
+    document.addEventListener("DOMContentLoaded", (function() {
+        const menuIcon = document.querySelector(".menu__icon");
+        if (menuIcon) menuIcon.addEventListener("click", (function() {
+            const detailsElement = document.querySelector("details");
+            if (detailsElement && detailsElement.hasAttribute("open")) detailsElement.removeAttribute("open");
+        }));
+    }));
     window["FLS"] = true;
     menuInit();
 })();
