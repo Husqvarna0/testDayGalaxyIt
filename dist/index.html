@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240618123051">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240618152051">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +14,100 @@
 
 <body>
 	<div class="wrapper">
+		<div id="popup" aria-hidden="true" class="popup">
+			<div class="popup__wrapper">
+				<div class="popup__content">
+					<button data-close type="button" class="popup__close">
+						<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+
+							<circle cx="20" cy="20" r="18.5" fill="white" stroke="black" stroke-width="3" />
+
+							<path d="M12 12L28 28" stroke="black" stroke-width="2" stroke-linecap="square" />
+							<path d="M28 12L12 28" stroke="black" stroke-width="2" stroke-linecap="square" />
+						</svg>
+					</button>
+					<div class="popup__text">
+						<div data-tabs class="tabs">
+							<nav data-tabs-titles class="tabs__navigation">
+								<button type="button" class="tabs__title _tab-active">ЛОГИН</button>
+								<button type="button" class="tabs__title">РЕГИСТРАЦИЯ</button>
+
+							</nav>
+							<div data-tabs-body class="tabs__content">
+								<div class="tabs__body login">
+									<form class="login__form" action="/login" method="POST">
+
+										<div class="login__mail">
+
+											<input data-error="*некорректно введенные данные" data-required="email" class="login__input" type="text" id="username" name="username" required placeholder="Введите email">
+										</div>
+										<div class="login__password">
+
+											<input class="login__input" type="password" id="password" name="password" required placeholder="Введите пароль">
+										</div>
+										<button class="login__submit">Войти</button>
+									</form>
+									<a href="" data-popup="#popup-pasword" class="login__forgot">Забыли пароль?</a>
+								</div>
+								<div class="tabs__body registration">
+									<form class="registration__form" method="POST">
+										<div class="registration__name">
+											<input class="registration__input" id="name" name="name" required placeholder="Введите имя">
+										</div>
+										<div class="registration__city">
+											<input class="registration__input" id="city" name="city" required placeholder="Ваш Город">
+										</div>
+										<div class="registration__phone">
+											<input class="registration__input" id="phone" name="phone" required placeholder="Введите телефон">
+										</div>
+										<div class="registration__mail">
+
+											<input data-error="*некорректно введенные данные" data-required="email" class="registration__input" type="text" id="username" name="username" required placeholder="Введите email">
+										</div>
+										<div class="registration__password">
+
+											<input class="registration__input" type="password" id="password" name="password" required placeholder="Введите пароль">
+										</div>
+										<div class="registration__repeat">
+											<input class="registration__input" type="password" id="repeatPassword" name="repeatPassword" required placeholder="Подтвердите  пароль">
+										</div>
+										<button class="registration__submit">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+									</form>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="popup-pasword" aria-hidden="true" class="popup">
+			<div class="popup__wrapper">
+				<div class="popup__content">
+					<button data-close type="button" class="popup__close">
+						<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+
+							<circle cx="20" cy="20" r="18.5" fill="white" stroke="black" stroke-width="3" />
+
+							<path d="M12 12L28 28" stroke="black" stroke-width="2" stroke-linecap="square" />
+							<path d="M28 12L12 28" stroke="black" stroke-width="2" stroke-linecap="square" />
+						</svg>
+					</button>
+					<div class="popup__text recovery">
+						<h2 class="recovery__title">ВОССТАНОВЛЕНИЕ ПАРОЛЯ</h2>
+						<form class="recovery__form" action="/login" method="POST">
+
+							<div class="recovery__mail">
+
+								<input data-error="*некорректно введенные данные" data-required="email" class="login__input" type="text" id="username" name="username" required placeholder="Введите email">
+							</div>
+
+							<button class="recovery__submit">ВОССТАНОВИТЬ</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 		<header class="header">
 			<div class="header__container">
 				<div class="header__menu menu">
@@ -104,7 +198,7 @@
 					<button class="actions__search"><img src="img/header/icons/search.svg" alt=""></button>
 					<button class="actions__favorite"><img src="img/header/icons/favorite.svg" alt=""></button>
 					<button class="actions__basket"><img src="img/header/icons/basket.svg" alt=""></button>
-					<button class="actions__login"><img src="img/header/icons/login.svg" alt=""></button>
+					<button data-popup="#popup" class="actions__login"><img src="img/header/icons/login.svg" alt=""></button>
 					<button type="button" class="menu__icon icon-menu"><span></span></button>
 				</div>
 			</div>
@@ -116,7 +210,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20240618123051"></script>
+	<script src="js/app.min.js?_v=20240618152051"></script>
 </body>
 
 </html>

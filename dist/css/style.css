@@ -101,6 +101,269 @@ h6 {
 .icon-menu {
   display: none
 }
+body::after {
+  content: "";
+  background-color: rgba(0,0,0,.5);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity .8s ease-in-out 0s;
+  pointer-events: none;
+  z-index: 149
+}
+.popup-show body::after {
+  opacity: 1
+}
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 30px 10px;
+  transition: visibility .8s ease-in-out 0s;
+  visibility: hidden;
+  pointer-events: none
+}
+.popup_show {
+  z-index: 150;
+  visibility: visible;
+  overflow: auto;
+  pointer-events: auto
+}
+.popup_show .popup__content {
+  visibility: visible;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+  transition: all 1s ease-in-out
+}
+.popup__wrapper {
+  flex-direction: column;
+  min-height: 100%;
+  flex: 1 1 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+.popup__content {
+  visibility: hidden;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  opacity: 0;
+  transition: -webkit-transform .3s ease 0s;
+  transition: transform .3s ease 0s;
+  transition: transform .3s ease 0s,-webkit-transform .3s ease 0s;
+  background-color: #fff;
+  padding: 2.875rem 3.0625rem 1.9375rem 3.0625rem;
+  max-width: 900px;
+  border: 3px solid #0f0f0f
+}
+.lock .popup__content {
+  visibility: visible
+}
+.popup__close {
+  position: absolute;
+  top: -1.25rem;
+  right: -1.25rem
+}
+.tabs__navigation {
+  display: flex;
+  gap: .625rem
+}
+.tabs__title {
+  width: 18.25rem;
+  height: 4.3125rem;
+  text-align: center;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 3px solid #0f0f0f;
+  font-weight: 700
+}
+.tabs__title._tab-active {
+  background-color: #0f0f0f;
+  color: #fff;
+  opacity: 1
+}
+.tabs__content {
+  margin-top: 3.4375rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center
+}
+.tabs__body {
+  -webkit-animation: fade 1s ease-in-out;
+  animation: fade 1s ease-in-out;
+  display: block
+}
+.tabs__body[hidden] {
+  display: none;
+  -webkit-animation: fade 1.5s ease-in-out;
+  animation: fade 1.5s ease-in-out
+}
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+.login {
+  max-width: 23.375rem;
+  width: 100%;
+  text-align: center
+}
+.login__password {
+  margin-top: 1.5625rem
+}
+.login__input {
+  letter-spacing: 1px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-transform: none;
+  padding-bottom: .875rem;
+  border-bottom: 3px solid #0f0f0f
+}
+.login__input::-webkit-input-placeholder {
+  color: #0f0f0f
+}
+.login__input:-ms-input-placeholder {
+  color: #0f0f0f
+}
+.login__input::-ms-input-placeholder {
+  color: #0f0f0f
+}
+.login__input::placeholder {
+  color: #0f0f0f
+}
+.login__input._form-error {
+  color: #d00000;
+  border-bottom: 3px solid #d00000
+}
+.login__input:focus {
+  outline: 0
+}
+.login__submit {
+  margin-top: 2.9375rem;
+  width: 23.5rem;
+  height: 3.75rem;
+  text-align: center;
+  background-color: #0f0f0f;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700
+}
+.login__forgot {
+  margin-top: 1.0625rem;
+  color: #878787;
+  text-decoration: underline
+}
+.form__error {
+  margin-top: .375rem;
+  text-align: left;
+  bottom: -1.5625rem;
+  left: 0;
+  color: #d00000
+}
+.registration {
+  max-width: 23.375rem;
+  width: 100%;
+  text-align: center
+}
+.registration__form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.8125rem
+}
+.registration__input {
+  letter-spacing: 1px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-transform: none;
+  padding-bottom: .875rem;
+  border-bottom: 3px solid #0f0f0f
+}
+.registration__input::-webkit-input-placeholder {
+  color: #0f0f0f
+}
+.registration__input:-ms-input-placeholder {
+  color: #0f0f0f
+}
+.registration__input::-ms-input-placeholder {
+  color: #0f0f0f
+}
+.registration__input::placeholder {
+  color: #0f0f0f
+}
+.registration__input._form-error {
+  color: #d00000;
+  border-bottom: 3px solid #d00000
+}
+.registration__input:focus {
+  outline: 0
+}
+.registration__submit {
+  margin-top: .625rem;
+  width: 23.5rem;
+  height: 3.75rem;
+  text-align: center;
+  background-color: #0f0f0f;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700
+}
+#popup-pasword .popup__content {
+  padding: 0
+}
+.recovery {
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+.recovery__title {
+  width: 31.25rem;
+  height: 4.3125rem;
+  font-size: 1.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #fff;
+  background-color: #0f0f0f
+}
+.recovery__form {
+  margin-top: 3.25rem;
+  max-width: 23.375rem
+}
+.recovery__submit {
+  margin-bottom: 2.5rem;
+  margin-top: 2.9375rem;
+  width: 23.5rem;
+  height: 3.75rem;
+  text-align: center;
+  background-color: #0f0f0f;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700
+}
 .ibg {
   width: 100%;
   height: 100%;
@@ -304,7 +567,7 @@ details summary {
 }
 @media (max-width:1835px) {
   .spollers__body::after {
-    width: 4.6875rem;
+    width: 4.8125rem;
     right: -4.75rem
   }
 }
@@ -473,6 +736,13 @@ details summary {
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg)
   }
+  .tabs__navigation {
+    justify-content: space-between
+  }
+  .tabs__title {
+    width: 10.625rem;
+    font-size: 1rem
+  }
   .header__container {
     display: flex;
     justify-content: space-between
@@ -500,6 +770,16 @@ details summary {
   }
 }
 @media (max-width:47.99875em) {
+  .popup__content {
+    padding: 2.875rem .9375rem 1.9375rem .9375rem
+  }
+  .recovery__title {
+    width: 25rem;
+    font-size: 1rem
+  }
+  .recovery__submit {
+    font-size: 1rem
+  }
   .spollers__types {
     flex-direction: column;
     row-gap: .9375rem
@@ -507,6 +787,42 @@ details summary {
   .categories {
     flex-wrap: wrap;
     row-gap: 1.875rem
+  }
+}
+@media (max-width:29.99875em) {
+  .popup__content {
+    padding: .9375rem .3125rem .9375rem .3125rem
+  }
+  .popup__close {
+    right: -.3125rem;
+    top: -1.875rem
+  }
+  .tabs__title {
+    width: 8.75rem;
+    font-size: .875rem
+  }
+  .login {
+    width: 17.5rem
+  }
+  .login__submit {
+    width: 17.5rem
+  }
+  .registration {
+    width: 17.5rem
+  }
+  .registration__submit {
+    width: 17.5rem
+  }
+  .recovery__title {
+    width: 17.5rem;
+    font-size: .875rem
+  }
+  .recovery__form {
+    max-width: 17.5rem
+  }
+  .recovery__submit {
+    width: 15rem;
+    font-size: .875rem
   }
 }
 @media (max-width:1640px) and (min-width:107.375em) {
